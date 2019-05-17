@@ -1,0 +1,227 @@
+html {
+  font-size: 100%;
+  width: 100%;
+  font-family: "Hiragino Kaku Gothic Pro","Yu Gothic","Meiryo",sans-serif;
+}
+body {margin: 0;}
+
+@mixin header_title {
+  color: #8747ab;
+}
+@mixin header_title2 {
+  letter-spacing: 1px;
+}
+@mixin header_p {
+  color: #3f546c;
+  font-size: 16px;
+}
+@mixin list {
+  list-style: none;
+}
+@mixin title_center {
+  clear: both;
+  text-align: center;
+}
+@mixin wraps {
+  text-align:center;
+  margin: 0 130px;
+}
+@mixin img_1 {
+  width: 100%;
+}
+
+// レスポンシブの設定
+$widthPC: 1024px;
+$widthTab: 768px;
+$widthSp: 480px;
+
+@mixin tab {
+  @media (min-width: $widthTab) and (max-width: ($widthPC)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($widthTab)) {
+    @content;
+  }
+}
+// レスポンシブの設定
+
+
+.h1, .h2, .h3, .h4, .h5{
+  @include header_title;
+}
+.h1, .h2, .h3, .h4, .h5, .contact_title {
+  @include header_title2;
+}
+
+.h1, .h2, .h3, .h4, .h5, .contact_title{
+  font-size: 40px;
+  @include tab {font-size: 32px;}
+  @include sp {font-size: 25px;}
+}
+
+.headerp, .aboutusp, .rangep, .Projectsp, .footerul, .copyright {
+  @include header_p;
+}
+.h3, .h4, .h5, .contact_title, .copyright{
+  @include title_center
+}
+.range_wraps, .Projects_wraps, .opinions_wraps, .contactp_wraps {
+  @include wraps;
+}
+.range_wraps, .Projects_wraps, .opinions_wraps, .contactp_wraps{
+  display: flex;
+  @include tab {display: flex;}
+  @include sp {flex-direction: column;}
+}
+
+.projectimg, .opiimg, .contactp_wrap {
+  @include img_1;
+}
+
+.range_wrap, .Projects_wrap, .opinions_wrap, .contactp_wrap {
+  display: inline-block;
+}
+.range_wrap, .Projects_wrap, .contactp_wrap {
+  margin: 25px;
+}
+.header {
+  background-image: url("../img/top.png");
+  background-repeat: no-repeat;
+  background-position:right;
+  background-size: 60%;
+  height: 750px;
+  .headerul {
+    float: right;
+    font-size: 80%;
+    @include list;
+    color: #fff;
+    margin-right: 80px;
+    li {
+      display: inline-block;
+      margin: 10px;
+    }
+  }
+  .logos {
+    float: left;
+    .headerlogo1 {
+      width: 10%;
+      margin: 20px 20px 20px 120px;
+    }
+    .headerlogo2 {
+      width: 25%;
+      margin: 0 20px 20px 0;
+    }
+  }
+  .clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .h1{
+    margin-top: 200px;
+  }
+  .h1, .headerp{
+    margin-left: 120px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    clear: both;
+  }
+  .callus {
+    background-image: linear-gradient(116deg, #ea4972 0%, #4a51e2 100%);
+    border-radius: 7px;
+    width: 170px;
+    height: 50px;
+    color: #fff;
+    margin-left: 120px;
+    margin-top: 30px;
+    text-align: center;
+    line-height: 50px;
+  }
+}
+.aboutus {
+  margin-right: 0;
+  float: right;
+  .h2 {
+    margin-top: 70px;
+  }
+  .aboutus_img {
+    width: 60%;
+    margin: 40px 40px 40px 0;
+    float: left;
+    .clearfix::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  }
+}
+.range {
+  .rangeimg {
+    width: 70%;
+  }
+}
+.projects_p {
+  border: 1px solid #3f546c;
+  border-radius: 7px;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.opinions_bi {
+  background-image: url("../img/Opiimg.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 650px;
+  position: relative;
+  .opinions_wraps {
+    margin: 0 10px;
+    position: absolute;
+    top: 150px;
+  }
+}
+.contact {
+  .contactabout {
+    background-image: url("../img/Contact.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 450px;
+    .contactabout_wrap {
+      padding-top: 100px;
+      p {
+        color: #fff;
+      }
+    }
+  }
+  .contactmap {
+    background-image: url("../img/maps.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 400px;
+  }
+}
+.footer {
+  height: 150px;
+  .footerul{
+    @include list;
+    margin-left: 80px;
+    float: left;
+  }
+  .footerlogo {
+    float: right;
+    width: 10%;
+    margin: 20px 200px;
+  }
+  .copyright {
+    clear: both;
+    border-top: 1px solid #3f546c;
+    padding: 50px 0;
+    font-size: 12px;
+    .cr_span {
+      margin: 0 50px;
+    }
+  }
+}
