@@ -1,0 +1,20 @@
+{
+  "ignoreFiles": [
+  ],
+  "syntax": "scss",
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-order"
+  ],
+  "rules": {
+    "indentation": 2,
+    "property-no-unknown": true,
+    "shorthand-property-no-redundant-values": true,
+    "color-hex-case": "lower",
+    "color-hex-length": "short",
+    "function-comma-space-before": "never",
+    "value-list-comma-space-before": "never",
+    "number-no-trailing-zeros": true,
+    "no-eol-whitespace": true
+  }
+}
